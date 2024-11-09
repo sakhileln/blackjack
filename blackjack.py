@@ -25,6 +25,13 @@ def backjack() -> None:
     player_score = calculate_score(player_hand)
     dealer_score = calculate_score(dealer_hand)
 
+    if dealer_score > 21 or player_score > dealer_score:
+        print("You win!")
+    elif player_score < dealer_score:
+        print("You lose")
+    else:
+        print("It's a draw")
+
 
 if __name__ == "__main__":
     # Start game
