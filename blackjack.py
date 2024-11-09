@@ -25,7 +25,7 @@ def blackjack() -> None:
             print("You went over 21. You lose!")
             return
         
-        should_continue = input("Type 'y' to get another card. 'n' to pass")
+        should_continue = input("Type 'y' to get another card. 'n' to pass: ")
         if should_continue == 'y':
             player_hand.append(deal_card())
         else:
