@@ -8,7 +8,7 @@ from helper import (
     display_hands
 )
 
-def backjack() -> None:
+def blackjack() -> None:
     """Main function to play blackjack."""
     player_hand = [deal_card(), deal_card()]
     dealer_hand = [deal_card(), deal_card()]
