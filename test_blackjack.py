@@ -22,6 +22,18 @@ class TestDealCard(unittest.TestCase):
         self.assertIn(result, [2, 3, 4, 5, 6, 7, 8, 9, 10, 11])
         self.assertEqual(result, 10)
 
+    @patch('helper.choice')
+    def test_card_randomness(self, mock_choice):
+        """Test that deal_card returns a random value."""
+        mock_choice.return_value = 7
+        self.assertEqual(deal_card(), 7)
+
+        mock_choice.return_value = 11
+        self.assertEqual(deal_card(), 11)
+
+        mock_choice.return_value = 3
+        self.assertEqual(deal_card(), 3)
+
 
 if __name__ == "__main__":
     unittest.main()
