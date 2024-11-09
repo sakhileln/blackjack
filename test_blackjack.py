@@ -2,7 +2,10 @@
 Test cases for the blackjack game.
 """
 
-from helper import deal_card
+from helper import (
+    deal_card,
+    calculate_score
+)
 import unittest
 from unittest.mock import patch
 
@@ -47,6 +50,16 @@ class TestDealCard(unittest.TestCase):
         self.assertEqual(deal_card(), 11)
         mock_choice.return_value = 2
         self.assertEqual(deal_card(), 2)
+
+    def test_no_ace(self):
+        """Test a hand with no ace, no adjustments needed."""
+        hand = [2, 3, 4]
+        self.assertEqual(calculate_score(hand), 9)
+    
+    def test_single_ace_no_bust(self):
+        """Test a hand with a single Ace that doesn't bust."""
+        hand = [10, 11]  # Ace is 11 here, score = 21
+        self.assertEqual(calculate_score(hand), 21)
 
 
 if __name__ == "__main__":
