@@ -61,6 +61,11 @@ class TestDealCard(unittest.TestCase):
         hand = [10, 11]  # Ace is 11 here, score = 21
         self.assertEqual(calculate_score(hand), 21)
 
+    def test_single_ace_with_bust(self):
+        """Test a hand with a single Ace where the score exceeds 21 and needs adjustment."""
+        hand = [10, 11, 6]  # Ace is 11, score = 27, adjust Ace to 1, score = 17
+        self.assertEqual(calculate_score(hand), 17)
+
 
 if __name__ == "__main__":
     unittest.main()
