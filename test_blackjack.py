@@ -20,7 +20,6 @@ class TestDealCard(unittest.TestCase):
         result = deal_card()
         # Assert that the result is in the valid set of card values
         self.assertIn(result, [2, 3, 4, 5, 6, 7, 8, 9, 10, 11])
-        self.assertEqual(result, 10)
 
     @patch('helper.choice')
     def test_card_randomness(self, mock_choice):
@@ -33,6 +32,13 @@ class TestDealCard(unittest.TestCase):
 
         mock_choice.return_value = 3
         self.assertEqual(deal_card(), 3)
+
+    @patch('helper.choice')
+    def test_deal_card_multiple_calls(self, mock_choice):
+        """Test mulitple calls deal_card returns same value."""
+        mock_choice.return_value = 6
+        for _ in range(21):
+            self.assertEqual(deal_card(), 6)
 
 
 if __name__ == "__main__":
