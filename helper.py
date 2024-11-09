@@ -21,7 +21,7 @@ def deal_card() -> int:
     return choice(cards)
 
 
-def calculate_score(hand: list) -> int:
+def calculate_score(hand: list[int]) -> int:
     """
     Calculate the score og given hand.
 
@@ -40,9 +40,9 @@ def calculate_score(hand: list) -> int:
 
 
 def display_hands(
-    player_hand: list,
-    dealer_hand: list,
-    reveal_hand=False: bool
+    player_hand: list[int],
+    dealer_hand: list[int],
+    reveal_hand: bool = False
 ) -> None:
     """
     Dsiplay player and dealer hands.
@@ -59,3 +59,8 @@ def display_hands(
         print(f"Dealer's hand: {dealer_hand}, score: {calculate_score(dealer_hand)}")
     else:
         print(f"Dealer's hand: [{dealer_hand[0]}, ?]")
+
+
+if __name__ == "__main__":
+    # Test cases
+    display_hands([3,9], [7,3], False)
