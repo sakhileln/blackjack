@@ -11,7 +11,7 @@ class TestDealCard(unittest.TestCase):
     """
     Test cases for blackjack functions 
     """
-    @patch('helper.choice')  # Patch the random.choice used in deal_card
+    @patch('helper.choice')  # Patch the helper.choice used in deal_card
     def test_deal_card_valid_values(self, mock_choice):
         """Test that deal_card returns a valid card (2-11)."""
         # Mock the random.choice to return 10 for this test
