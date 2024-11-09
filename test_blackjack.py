@@ -40,6 +40,14 @@ class TestDealCard(unittest.TestCase):
         for _ in range(21):
             self.assertEqual(deal_card(), 6)
 
+    @patch('helper.choice')
+    def test_deal_card_edge_cases(self, mock_choice):
+        """Test deal_card when it has edge cases."""
+        mock_choice.return_value = 11 # Aces
+        self.assertEqual(deal_card(), 11)
+        mock_choice.return_value = 2
+        self.assertEqual(deal_card(), 2)
+
 
 if __name__ == "__main__":
     unittest.main()
