@@ -76,6 +76,11 @@ class TestDealCard(unittest.TestCase):
         hand = [11, 11, 11, 10]  # score = 43, adjusted score = 13
         self.assertEqual(calculate_score(hand), 13)
 
+    def test_empty_hand(self):
+        """Test an empty hand, score 0."""
+        hand = []
+        self.assertEqual(calculate_score(hand), 0)
+
 
 if __name__ == "__main__":
     unittest.main()
